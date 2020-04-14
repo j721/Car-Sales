@@ -16,10 +16,29 @@ const initialState ={
   };
 
   const featuresReducer =(state = initialState, action)=>{
-      console.log(state, action);
-      switch(action.type){
-          case 
-      }
+    switch(action.type){
+        case "Buy":
+            return{
+                ...state, car:{
+                    ...state.car, 
+                    price: state.car.price + action.payload.price,
+                    features: [...state.car.features, action.payload]
+                }
+            };
+            case "Delete":
+                return{
+                    ...state,
+                    car:{
+                        ...state.car,
+                        price: state.car.price -action.payload.price,
+                        features: state.car.features.filter(
+                            item=>item.id !== action.payload.id
+                        )
+                    }
+                }
+                default: return state; 
+    }
   }
-
+     
+  
   export default featuresReducer; 
