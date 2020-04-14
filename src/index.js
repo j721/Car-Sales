@@ -11,12 +11,14 @@ import './styles.scss';
 
 //Step 1- create redux store and connect it to our React app
 const store = createStore(featuresReducer);
-console.log('current state:', store.getState());
+// console.log('current state:'), store.getState());
 
 const rootElement = document.getElementById('root');
 ReactDOM.render(
-        <Provider>
+        <Provider store ={store}>
             <App />
         </Provider>,
     rootElement
 );
+
+

@@ -15,30 +15,56 @@ const initialState ={
     ]
   };
 
-  const featuresReducer =(state = initialState, action)=>{
+ export const featuresReducer =(state = initialState, action)=>{
     switch(action.type){
-        case "Buy":
+        case "ADD_ITEM":
             return{
-                ...state, car:{
-                    ...state.car, 
-                    price: state.car.price + action.payload.price,
-                    features: [...state.car.features, action.payload]
+                ...state,
+                //increase price with payload
+                additionalPrice: state.additionalPrice + action.payload.price,
+                //add car feature
+                car:{
+                  ...state.car,
+                  features: [
+                    ...state.car.features,
+                    action.payload
+                  ]
                 }
-            };
-            case "Delete":
+            }
+                // ...state, car:{
+                //     ...state.car, 
+                //     features:[...state.car.features, action.payload],
+                //     price: state.car.price + action.payload.price
+                //     // features: [...state.car.features, action.payload]
+                    
+                // }
+          
+            case "REMOVE_ITEM":
                 return{
-                    ...state,
-                    car:{
-                        ...state.car,
-                        price: state.car.price -action.payload.price,
-                        features: state.car.features.filter(
-                            item=>item.id !== action.payload.id
-                        )
-                    }
+                  ...state,
+                  //Decrease price by payload
+                  additionalPrice: state.additionalPrice - action.payload.price,
+                  //Remove car feature
+                  car:{
+                    ...state.car,
+                    features: [
+                      ...state.car.features.filter(item=> item.id !== action.payload.id)
+                    ]
+                  }
+
+
+                    // ...state,
+                    // car:{
+                    //     ...state.car,
+                    //     price: state.car.price -action.payload.price,
+                    //     features: state.car.features.filter(
+                    //         item=>item.id !== action.payload.id
+                    //     )
+                    // }
                 }
                 default: return state; 
-    }
+                
+    }//end of swtich statement
   }
      
   
-  export default featuresReducer; 
