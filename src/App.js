@@ -1,7 +1,8 @@
 import React from 'react';
 
 import { connect } from "react-redux";
-import {addItem, removeItem} from "./actions";
+import {addItem} from "./actions/addItem";
+import {removeItem} from "./actions/removeItem";
 
 import Header from './components/Header';
 import AddedFeatures from './components/AddedFeatures';
