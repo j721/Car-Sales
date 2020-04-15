@@ -1,6 +1,7 @@
-import React from "react";
+  
+import React from 'react';
 
-import AddedFeature from "./AddedFeature";
+import AddedFeature from './AddedFeature';
 
 const AddedFeatures = props => {
   return (
@@ -9,12 +10,7 @@ const AddedFeatures = props => {
       {props.car.features.length ? (
         <ol type="1">
           {props.car.features.map(item => (
-            <AddedFeature
-              key={item.id}
-              id={item.id}
-              feature={item}
-              removeFeature={props.removeFeature}
-            />
+            <AddedFeature removeFeature={props.removeFeature} key={item.id} feature={item} />
           ))}
         </ol>
       ) : (
