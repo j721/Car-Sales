@@ -28,7 +28,8 @@ const featuresReducer = (state = initialState, action) => {
           ...state.car,
           price: state.car.price + action.payload.price,
           features: [...state.car.features, action.payload]
-        }
+        }, 
+        // additionalFeatures: state.additionalFeatures.filter(item=> item.id !== action.payload.id)
       };
     case "Delete":
       return {
@@ -39,7 +40,8 @@ const featuresReducer = (state = initialState, action) => {
           features: state.car.features.filter(
             item => item.id !== action.payload.id
           )
-        }
+        },
+        // additionalFeatures: state.additionalFeatures.filter(item=> item.id === action.payload.id)
       };
 
       
