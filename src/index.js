@@ -1,24 +1,21 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import { createStore } from 'redux';
-import { Provider } from 'react-redux';
-import {featuresReducer} from './reducers/featuresReducer';
-import App from './App';
+import React from "react";
+import ReactDOM from "react-dom";
+import { createStore } from "redux";
+import { Provider } from "react-redux";
 
-import 'bulma/css/bulma.css';
-import './styles.scss';
+import featuresReducer from "./reducers/featuresReducer";
 
+import App from "./App";
 
-//Step 1- create redux store and connect it to our React app
+import "bulma/css/bulma.css";
+import "./styles.scss";
+
 const store = createStore(featuresReducer);
-// console.log('current state:'), store.getState());
 
-const rootElement = document.getElementById('root');
+const rootElement = document.getElementById("root");
 ReactDOM.render(
-        <Provider store ={store}>
-            <App />
-        </Provider>,
-    rootElement
+  <Provider store={store}>
+    <App />
+  </Provider>,
+  rootElement
 );
-
-

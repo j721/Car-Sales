@@ -1,19 +1,19 @@
-import React from 'react';
-import AdditionalFeature from './AdditionalFeature';
-import {addItem  }from '../actions/action';
+import React from "react";
+
+import AdditionalFeature from "./AdditionalFeature";
 
 const AdditionalFeatures = props => {
-  const buyItem = item => {
-    // dipsatch an action here to add an item
-    props.addItem(item)
-  };
   return (
     <div className="content">
       <h4>Additional Features</h4>
       {props.additionalFeatures.length ? (
         <ol type="1">
           {props.additionalFeatures.map(item => (
-            <AdditionalFeature key={item.id} feature={item} buyItem={buyItem} />
+            <AdditionalFeature
+              key={item.id}
+              feature={item}
+              buyItem={props.buyItem}
+            />
           ))}
         </ol>
       ) : (
