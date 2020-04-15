@@ -1,3 +1,6 @@
+import { ADD_ITEM, REMOVE_ITEM } from '../actions/action';
+
+
 const initialState ={
     additionalPrice: 0,
     car: {
@@ -17,7 +20,7 @@ const initialState ={
 
  export const featuresReducer =(state = initialState, action)=>{
     switch(action.type){
-        case "ADD_ITEM":
+        case ADD_ITEM:
             return{
                 ...state,
                 //increase price with payload
@@ -39,7 +42,7 @@ const initialState ={
                     
                 // }
           
-            case "REMOVE_ITEM":
+            case REMOVE_ITEM:
                 return{
                   ...state,
                   //Decrease price by payload
@@ -63,7 +66,7 @@ const initialState ={
                     // }
                 }
                 default: return state; 
-                
+
     }//end of swtich statement
   }
      
